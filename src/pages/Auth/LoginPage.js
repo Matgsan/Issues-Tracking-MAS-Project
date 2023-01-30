@@ -20,6 +20,7 @@ const LoginPage = ({navigation}) => {
           value={email}
           placeholder='Email'
           placeholderTextColor='gray'
+          autoCapitalize='none'
         />
         <TextInput style={[styles.input, {marginVertical: 16}]} 
           onChangeText={e => setPassword(e)}
@@ -27,6 +28,7 @@ const LoginPage = ({navigation}) => {
           placeholder='Password' 
           placeholderTextColor='gray'
           secureTextEntry
+          autoCapitalize='none'
         />
         <TouchableOpacity style={styles.button} onPress={() => auth.signIn(email, password)}><Text style={styles.buttonText}>Log In</Text></TouchableOpacity>
         <TouchableOpacity><Text style={styles.forgotPasswordText}>Forgot your password?</Text></TouchableOpacity>

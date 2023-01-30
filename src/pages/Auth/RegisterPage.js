@@ -26,6 +26,7 @@ const RegisterPage = ({navigation}) => {
           value={email}
           placeholder='Email'
           placeholderTextColor='gray'
+          autoCapitalize='none'
         />
         <TextInput style={[styles.input, {marginVertical: 16}]} 
           onChangeText={e => setPassword(e)}
@@ -33,6 +34,7 @@ const RegisterPage = ({navigation}) => {
           placeholder='Password' 
           placeholderTextColor='gray'
           secureTextEntry
+          autoCapitalize='none'
         />
         <TouchableOpacity style={styles.button} onPress={() => auth.signUp(name, email, password)}><Text style={styles.buttonText}>Create Account</Text></TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('LoginPage')}><Text style={styles.forgotPasswordText}>Already have an account? Log In here</Text></TouchableOpacity>

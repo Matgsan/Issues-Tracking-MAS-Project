@@ -8,4 +8,13 @@ const githubApi = axios.create({
     }
   });
 
-export default githubApi;
+
+export async function getUserReposistories(username) {
+  const response = await githubApi.get(`/users/${username}/repos`);
+  return response.data;
+}
+
+export async function getRepositoriesIssues(username, repo) {
+  const response = await githubApi.get(`/repos/${username}/${repo}/issues`);
+  return response.data;
+}

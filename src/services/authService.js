@@ -16,9 +16,6 @@ class AuthService {
       if (handlers) {
         this.handlers = handlers;
       }
-      if (this.user) {
-        this.addInterceptors();
-      }
     }catch(e) {
       console.log(e);
     }
