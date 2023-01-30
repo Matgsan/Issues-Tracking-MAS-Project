@@ -32,6 +32,7 @@ export function AuthProvider({ children }) {
       await authService.signIn(email, password);
       setUser(authService.user);
     } catch (error) {
+      console.log(error)
       //TODO: Display error message
     }
     setLoading(false);
