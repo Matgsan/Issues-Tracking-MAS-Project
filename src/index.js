@@ -8,6 +8,7 @@ import SearchUserPage from './pages/SearchUserPage';
 import { MaterialIcons} from '@expo/vector-icons'; 
 import { useNavigation } from '@react-navigation/native';
 import ListUserReposPage from './pages/ListUserReposPage';
+import IssuesListPage from './pages/IssuesListPage';
 
 
 const AppStack = createNativeStackNavigator();
@@ -40,6 +41,7 @@ function AppPages() {
     />
     <AppStack.Screen name="SearchUserPage" component={SearchUserPage} />
     <AppStack.Screen name="ListUserReposPage" component={ListUserReposPage} />
+    <AppStack.Screen name="IssuesListPage" component={IssuesListPage} />
     </AppStack.Navigator>
   );
 }
