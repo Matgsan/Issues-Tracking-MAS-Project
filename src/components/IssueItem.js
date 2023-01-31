@@ -12,7 +12,7 @@ const IssueItem = ({issue}) => {
 
 const styles = StyleSheet.create({
   button: (isPullRequest) => {
-    const backgroundColor = isPullRequest ? '#c946ef' : '#f7be10';
+    const backgroundColor = isPullRequest ? 'green' : 'red';
     return {
       alignItems: 'left',
       justifyContent: 'center',
