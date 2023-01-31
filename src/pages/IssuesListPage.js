@@ -7,6 +7,7 @@ const IssuesListPage = () => {
   const {params} = useRoute();
   return (
     <FlatList
+      contentContainerStyle={{padding: 20}}
       data={params.issues || []}
       renderItem={({item}) => <IssueItem issue={item}/>}
     />

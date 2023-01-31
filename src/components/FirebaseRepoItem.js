@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useCallback, useEffect, useState } from 'react';
-import { Text, TouchableOpacity } from 'react-native';
+import { Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { collection, addDoc } from 'firebase/firestore';
 import { useAuth } from '../hooks/auth';
 import { firestore } from '../config/firebaseConfig';
@@ -10,9 +10,7 @@ import {getRepositoriesIssues} from '../services/githubService';
 const FirebaseRepoItem = ({repo}) => {
   const navigation = useNavigation();
   const [issues, setIssues] = useState([])
-  //TODO: Style
-  //TODO: Show different style if pull_request property is present and not null (which means is a PR)
-  
+
   useEffect(() => {
     async function fetch(){
       const issuesResponse = await getRepositoriesIssues(repo.repoOwner, repo.repoName);
@@ -21,13 +19,31 @@ const FirebaseRepoItem = ({repo}) => {
     fetch();
   }, []);
   return (
-    <TouchableOpacity onPress={() => {
+    <TouchableOpacity style={styles.button} onPress={() => {
       console.log(issues.length);
       navigation.navigate('IssuesListPage', {issues})
     }}>
-      <Text>{repo.repoName} - {issues.length}</Text>
+      <Text style={styles.text}>{repo.repoName} - {issues.length}</Text>
     </TouchableOpacity>
   );
 }
+
+const styles = StyleSheet.create({
+  button: {
+    alignItems: 'left',
+    justifyContent: 'center',
+    paddingVertical: 8,
+    paddingHorizontal: 8,
+    marginVertical: 4,
+    borderRadius: 8,
+    backgroundColor: '#76b5c5',
+  },
+  text: {
+    fontSize: 14,
+    lineHeight: 21,
+    letterSpacing: 0.25,
+    color: 'black',
+  },
+});
 
 export default FirebaseRepoItem;
