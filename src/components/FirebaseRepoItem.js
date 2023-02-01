@@ -23,7 +23,7 @@ const FirebaseRepoItem = ({repo}) => {
       console.log(issues.length);
       navigation.navigate('IssuesListPage', {issues})
     }}>
-      <Text style={styles.text}>{repo.repoName} - {issues.length}</Text>
+      <Text style={styles.text}>{repo.repoName} - {issues.length} Issues/PRs</Text>
     </TouchableOpacity>
   );
 }
